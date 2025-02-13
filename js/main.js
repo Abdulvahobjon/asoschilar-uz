@@ -3,20 +3,27 @@ const elements = {
   hamburgerBtn: document.querySelector(".header-hamburger-menyu"),
   hamburgerClose: document.querySelector(".header-responsive-close"),
   hamburgerMenu: document.querySelector(".header-responsive"),
-  body: document.body,
+  body: document.querySelector("#html"),
   formModal: document.querySelector(".formModal"),
   bgCloseModal: document.querySelector(".bgCloseModal"),
   loader: document.querySelector(".loaderBG"),
   formModalText: document.querySelector(".formModalText"),
   formModalValid: document.querySelector(".formModamValid"),
-  formModalInvalid: document.querySelector(".formModamInvalid")
+  formModalInvalid: document.querySelector(".formModamInvalid"),
+  headerLink: document.querySelectorAll(".header-responsive-link")
 };
 
 // Menu functions
 const toggleMenu = (show) => {
   elements.hamburgerMenu.classList.toggle("show", show);
-  elements.body.classList.add("overFlowHidden", show)
+  elements.body.classList.toggle("overFlowHidden", show);
 };
+
+elements.headerLink.forEach((item) => {
+  item.addEventListener("click", () => {
+    toggleMenu(false);
+  });
+})
 
 // Event listeners for menu
 elements.hamburgerBtn.addEventListener("click", () => toggleMenu(true));
@@ -64,27 +71,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Form validation
-const validateForm = (formName, nameId, phoneId, nameErrorId, phoneErrorId, companyId, companyErrorId) => {
+const validateForm = (
+  formName,
+  nameId,
+  phoneId,
+  nameErrorId,
+  phoneErrorId,
+  companyId,
+  companyErrorId
+) => {
   const form = document.forms[formName];
   const inputs = {
     name: document.getElementById(nameId),
     phone: document.getElementById(phoneId),
-    company: document.getElementById(companyId)
+    company: document.getElementById(companyId),
   };
   const errors = {
     name: document.getElementById(nameErrorId),
     phone: document.getElementById(phoneErrorId),
-    company: document.getElementById(companyErrorId)
+    company: document.getElementById(companyErrorId),
   };
+  inputs.phone.addEventListener("input", (e) => {
+    let input = e.target.value.replace(/\D/g, "");
+    if (input.startsWith("998")) {
+      input = input.slice(3);
+    }
+    let formatted = "+998 ";
+    if (input.length > 0) formatted += input.substring(0, 2) + " ";
+    if (input.length > 2) formatted += input.substring(2, 5) + " ";
+    if (input.length > 5) formatted += input.substring(5, 7) + " ";
+    if (input.length > 7) formatted += input.substring(7, 9);
 
-  const formatPhoneNumber = (input) => {
-    input = input.replace(/\D/g, "").slice(0, 12);
-    if (input.startsWith("998")) input = input.slice(3);
-    return input.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, "+998 $1 $2 $3 $4").trim();
-  };
+    e.target.value = formatted.trim();
+  });
 
   inputs.phone.addEventListener("input", (e) => {
-    e.target.value = formatPhoneNumber(e.target.value);
+    const cursorPosition = e.target.selectionStart;
+    e.target.setSelectionRange(cursorPosition, cursorPosition); // Maintain cursor position
   });
 
   const validateInputs = () => {
@@ -94,9 +117,24 @@ const validateForm = (formName, nameId, phoneId, nameErrorId, phoneErrorId, comp
     const companyValue = inputs.company.value.trim();
 
     const validations = [
-      { input: inputs.name, error: errors.name, condition: !/^[A-Za-z\s]+$/.test(nameValue), message: "Ismni togri kiriting" },
-      { input: inputs.phone, error: errors.phone, condition: !/^\+998\s\d{2}\s\d{3}\s\d{2}\s\d{2}$/.test(phoneValue), message: "Telefon raqamini to'g'ri kiriting: +998 XX XXX XX XX" },
-      { input: inputs.company, error: errors.company, condition: companyValue === "", message: "Kompaniya nomi bo'sh bo'lmasligi kerak." }
+      {
+        input: inputs.name,
+        error: errors.name,
+        condition: !/^[A-Za-z\s]+$/.test(nameValue),
+        message: "Ismni togri kiriting",
+      },
+      {
+        input: inputs.phone,
+        error: errors.phone,
+        condition: !/^\+998\s\d{2}\s\d{3}\s\d{2}\s\d{2}$/.test(phoneValue),
+        message: "Telefon raqamini to'g'ri kiriting: +998 XX XXX XX XX",
+      },
+      {
+        input: inputs.company,
+        error: errors.company,
+        condition: companyValue === "",
+        message: "Kompaniya nomi bo'sh bo'lmasligi kerak.",
+      },
     ];
 
     validations.forEach(({ input, error, condition, message }) => {
@@ -132,7 +170,11 @@ const validateForm = (formName, nameId, phoneId, nameErrorId, phoneErrorId, comp
           throw new Error("Network response was not ok.");
         }
       } catch (error) {
-        toggleModal(true, "An error occurred while submitting the data.", false);
+        toggleModal(
+          true,
+          "An error occurred while submitting the data.",
+          false
+        );
       } finally {
         elements.loader.style.display = "none";
       }
@@ -140,6 +182,12 @@ const validateForm = (formName, nameId, phoneId, nameErrorId, phoneErrorId, comp
   });
 };
 
-// Initialize form validation for both forms
-validateForm("contact-form-1", "name-1", "phone-1", "name-error1", "phone-error1", "company-1", "company-error1");
-validateForm("contact-form-2", "name-2", "phone-2", "name-error", "phone-error", "company-2", "company-error2");
+validateForm(
+  "contact-form-2",
+  "name-2",
+  "phone-2",
+  "name-error",
+  "phone-error",
+  "company-2",
+  "company-error2"
+);

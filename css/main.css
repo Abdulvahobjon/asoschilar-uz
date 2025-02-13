@@ -1900,7 +1900,7 @@ label {
     color: #FFFFFF;
     z-index: 10;
     cursor: pointer;
-    transition: all .3s;
+    transition: all .3s !important;
 }
 
 .form-btn:hover {
@@ -2094,7 +2094,6 @@ label {
         height: auto;
     }
 }
-
 
 
 
@@ -2626,7 +2625,7 @@ label {
 
 .price {
     padding-top: 114px;
-    padding-bottom: 150px;
+    padding-bottom: 170px;
     background-color: #000000;
     position: relative;
 }
@@ -2686,6 +2685,7 @@ label {
     gap: 30px;
     justify-content: center;
     position: relative;
+    margin-bottom: 123px;
 }
 
 .price-row {
@@ -2695,11 +2695,35 @@ label {
     justify-content: space-between;
     padding: 45px 32px 0 32px;
     background-color: #FFFFFF;
-    border: 1px solid #A7A7A7;
     border-radius: 16px;
     z-index: 10;
-    height: 753px;
+    min-height: 708px;
     z-index: 6;
+    border: 2px solid #A7A7A7;
+}
+
+.priceApplication {
+    max-width: 269px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 14px 56px;
+    background-color: #252525;
+    box-shadow: 0px 4px 0px 0px #ACACAC;
+    border-radius: 29px;
+    font-family: "SFPro500";
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 29.83px;
+    color: #FFFFFF;
+    margin-bottom: -28px;
+    transition: all .3s;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.priceApplication:hover {
+    transform: scale(1.1);
 }
 
 .price-row-title {
@@ -2739,7 +2763,6 @@ label {
 }
 
 .price-row-item {
-    max-width: 369px;
     display: flex;
     gap: 10px;
     font-family: SFPro400, sans-serif;
@@ -2747,8 +2770,11 @@ label {
     font-weight: 400;
     line-height: 20.3px;
     text-align: left;
+    align-items: start;
+}
 
-
+.price-row-item>img {
+    padding-top: 5px;
 }
 
 .price-row-text {
@@ -2782,6 +2808,91 @@ label {
     z-index: 40;
 }
 
+.priceBranding {
+    max-width: 672px;
+    background-color: #FFFFFF;
+    border: 1px solid #A7A7A7;
+    border-radius: 16px;
+    padding: 32px 61px 0 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.priceBrandingTitle {
+    font-family: "SFPro500", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 46.72px;
+    margin-bottom: 2px;
+    color: #272525;
+}
+
+.priceBrandingText {
+    font-family: "SFPro400", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    color: #505050;
+    margin-bottom: 24px;
+}
+
+.priceBrandingLine {
+    border: 1px solid #A7A7A7;
+    max-width: 270px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.priceBrandingList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-bottom: 59px;
+}
+
+.priceBrandingListItem {
+    display: flex;
+    align-items: start;
+    gap: 9px;
+    font-family: "SFPro400";
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 28.19px;
+}
+
+.priceBranding>button {
+    align-self: center;
+}
+
+.priceDecorationLeft {
+    max-width: 850px;
+    max-height: 637px;
+    position: absolute;
+    top: 832px;
+    left: -550px;
+    transition: all .3s !important;
+}
+
+.priceDecorationRight {
+    max-width: 512px;
+    max-height: 896px;
+    position: absolute;
+    top: 953px;
+    right: -235px;
+    transition: all .3s !important;
+}
+
+.priceDecorationLeft:hover {
+    transform: translateX(-30px) translateY(30px) !important;
+}
+
+.priceDecorationRight:hover {
+    transform: translateX(30px) translateY(30px) !important;
+}
+
 @media (max-width:1650px) {
     .price-position {
         right: 0;
@@ -2789,6 +2900,12 @@ label {
         max-width: 256px;
         max-height: 779px;
         z-index: 10;
+    }
+}
+
+@media(max-width:1500px) {
+    .price-box {
+        row-gap: 45px;
     }
 }
 
@@ -2855,7 +2972,7 @@ label {
 
     .price-box {
         display: flex;
-        gap: 30px;
+        gap: 45px;
         justify-content: center;
 
     }
@@ -2873,6 +2990,11 @@ label {
         z-index: 10;
     }
 
+    .priceDecorationLeft,
+    .priceDecorationRight {
+        display: none;
+    }
+
 
 }
 
@@ -2885,17 +3007,51 @@ label {
 }
 
 @media(max-width:550px) {
+    .price-box {
+        margin-bottom: 45px;
+    }
 
     .price-row {
         width: 100%;
+        min-height: 600px;
     }
 
     .price-row-text {
         margin-bottom: 25px;
     }
+
+    .priceBrandingTitle {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .priceBrandingText {
+        margin-bottom: 20px;
+    }
+
+    .priceBrandingLine {
+        margin-bottom: 20px;
+    }
+
+    .priceBrandingListItem {
+        font-size: 18px;
+        line-height: 20px;
+    }
 }
 
 @media (max-width:480px) {
+    .priceBranding {
+        padding: 20px 22px 0 22px;
+    }
+
+    .priceApplication {
+        font-size: 16px;
+        text-align: center;
+        line-height: 20px;
+        max-width: 263px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
     .price-position {
         width: 100px;
@@ -2950,12 +3106,12 @@ label {
 /* team style */
 .team {
     padding-top: 150px;
-    padding-bottom: 233px;
+    padding-bottom: 230px;
     background-color: #000000;
 }
 
 .team-container {
-    max-width: 1506px;
+    max-width: 1485px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
@@ -2969,378 +3125,261 @@ label {
     line-height: 60.06px;
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 131px;
+    margin-bottom: 98px;
     text-transform: uppercase;
 
 }
 
-.team-box {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.team-col {
-    display: flex;
-    gap: 86px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 110px;
-}
-
 .team-img {
-    width: 230px;
-    height: 230px;
-    border-radius: 24px;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    display: flex;
 }
 
-.team-row {}
+.team-left-top {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
 
-.team-row-title {
-    font-family: SFPro500, sans-serif;
-    font-size: 35px;
+.team-subtitle {
+    font-family: SF Pro Display, sans-serif;
+    font-size: 45px;
     font-weight: 500;
-    line-height: 41.77px;
+    line-height: 53.7px;
     text-align: left;
     color: #FFFFFF;
-    margin-bottom: 4px;
 
 }
 
-.team-row-text {
-    font-family: SFPro400, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23.87px;
-    text-align: left;
-    color: #636363;
-    margin-bottom: 18px;
-}
-
-.teamInfoList {
-    margin-bottom: 4px;
-}
-
-.teamInfoListItem {
-    font-family: SFPro400, sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 29.83px;
-    color: #FFFFFF;
-}
-
-.teamInfoListItem>span {
-    font-family: sans-serif;
-    font-weight: 300;
-}
-
-
-.team-row-text2 {
-    font-family: SFPro400, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23.87px;
-    text-align: left;
-    color: #636363;
-
-}
-
-.team-btn-box-btn {
-    padding: 9px 36px 5px 35px;
-    font-family: SFPro400, sans-serif;
+.team-subtext {
+    font-family: SF Pro Display, sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 35.8px;
-    text-align: center;
+    text-align: left;
+    color: #767676;
+
+}
+
+.team-text {
+    display: block;
+    font-family: SF Pro Display, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 35.8px;
+    text-align: left;
     color: #FFFFFF;
-    background-color: transparent;
-    border: 2px solid #FFFFFF;
-    cursor: pointer;
-    border-radius: 28px;
+    margin-bottom: 5px;
+    text-decoration: none;
     transition: all .3s !important;
 }
 
-.team-btn-box-btn:hover {
-    background-color: #ffffff;
-    color: #333;
+.team-text:hover{
+    opacity: 50% !important;
 }
 
-.team-btn-box {
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
+.team-text > span{
+    font-weight: 300;
+    color: #686868;
 }
 
-.team-btn-top-box,
-.team-btn-bottom-box {
+.team-text-box {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    column-gap: 25px;
-    row-gap: 20px;
 }
 
-
-@media(max-width:1580px) {
-
-    .team-btn-top-box,
-    .team-btn-bottom-box {
-        gap: 30px;
-    }
-}
-
-@media(max-width:1440px) {
-    .team-btn-top-box{
-        gap: 20px;
-    }
-}
-
-@media (max-width:1280px) {
-    .team {
-        padding-top: 100px;
-        padding-bottom: 150px;
-    }
-
-    .team-row-title {
-        font-size: 33px;
-    }
-
-    .team-row-title2 {
-        font-size: 22px;
-    }
-
-    .team-row-text {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-
-    .team-row-text-2 {
-        font-size: 18px;
-    }
-
-    .team-img {
-        width: 230px;
-        height: 230px;
-    }
-
-    .team-col {
-        gap: 0;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .team-btn-box-btn,
-    .team-btn-box-btn-2,
-    .team-btn-box-btn-3 {
-        padding: 9px 36px 5px 35px;
-        font-size: 28px;
-        font-weight: 400;
-        line-height: 30.8px;
-    }
+.team-box {
+    margin-left: 169px;
+    margin-top: 32px;
 
 }
 
-@media (max-width:900px) {
-    .team {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
+.team-left {
+    max-width: 643px;
+}
 
-    .team-btn-box {
-        gap: 20px;
-    }
+.team-wrap {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
 
-    .team-col {
+.team-right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.team-btn-row-top {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 38px;
+}
+
+.team-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+
+.team-btn {
+    font-family: SF Pro Display, sans-serif;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 36.99px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 9px 30px 6px 35px;
+    border-radius: 28px;
+    border: 1px solid #FFFFFF;
+    background-color: #000000;
+    transition: all .3s !important;
+
+}
+
+.team-btn:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+.teamBottom{
+    display: none;
+}
+
+@media(max-width:1500px) {
+    .team-wrap {
         flex-wrap: wrap;
-        margin-bottom: 60px;
-        gap: 40px;
+        gap: 50px;
     }
 
-    .team-title {
-        margin-bottom: 50px;
+    .team-left {
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
     }
-
-    .team-btn-box-btn {
-        padding: 9px 26px 5px 25px;
-        font-size: 20px;
+    .teamBottom{
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+        row-gap: 20px;
+        flex-wrap: wrap;
     }
-
-    .team-btn-top-box {
-        gap: 20px;
+    .team-right{
+        display: none;
     }
-
 }
 
-@media(max-width:750px) {
+@media(max-width:1180px) {
+    .team-box {
+        margin: 0px;
+
+    }
+
+    .team-left {
+        gap: 30px;
+        display: flex;
+    }
+}
+
+@media(max-width:1050px) {
+    .team-left {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:850px) {
+    .team-img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .team {
+        padding: 50px 0px;
+    }
+
+    .team-btn {
+        font-size: 25px;
+        line-height: 30px;
+    }
+}
+
+@media(max-width:740px) {
     .team-title {
         font-size: 40px;
         line-height: 40px;
+        margin-bottom: 50px;
     }
 
-    .team-box {
-        flex-direction: column;
+    .team-subtitle {
+        font-size: 27px;
+        line-height: 27px;
     }
 
-    .team-col {
-        justify-content: center;
-    }
-
-    .teamInfoListItem {
-        font-size: 22px;
+    .team-subtext,
+    .team-text {
+        font-size: 20px;
         line-height: 24px;
     }
 
-    .team-box {
-        max-width: 324px;
-        width: 100%;
-        align-items: start;
+    .team-img {
+        width: 90px;
+        height: 90px;
     }
 
-    .team-img {
-        margin-left: auto;
-        margin-right: auto;
+    .team-btn {
+        font-size: 22px;
+        line-height: 24px;
+        padding: 6px 25px;
     }
-    .team-btn-box-btn{
-        font-size: 16px;
-        line-height: 16px;
-    }
+
 }
 
-@media (max-width:480px) {
-    .team-col {
-        flex-direction: column;
-    }
-
-    .team-box {
-        max-width: 324px;
-        width: 100%;
-    }
-
-    .teamInfoListItem {
+@media(max-width:630px) {
+    .team-btn {
         font-size: 18px;
-        line-height: 18px;
-    }
-
-    .team-title {
-        font-size: 35px;
-        margin-bottom: 35px;
-    }
-
-    .team-btn-box-btn {
-        padding: 5px 10px 3px 15px;
-        font-size: 10px;
-        line-height: 15px;
-        justify-content: center;
-        font-size: 14px;
-        line-height: 14px;
-    }
-
-    .team-btn-box,
-    .team-btn-top-box,
-    .team-btn-bottom-box {
-        gap: 10px;
-    }
-
-    .team-img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .team-row-title {
-        font-size: 15px;
         line-height: 20px;
+        padding: 6px 20px;
     }
 
-    .team-row-text {
-        font-size: 13px;
-        line-height: 15px;
-        margin-bottom: 9px;
-    }
-
-    .team-row-title2 {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 3px;
-    }
-
-    .team-row-title2-span {
-        font-size: 14px;
-        line-height: 18px;
-    }
-
-    .team-row-text2 {
-        font-size: 10px;
+    .team-btn-row,
+    .team-btn-row-top {
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
 }
 
-@media (max-width:360px) {
-    .team {
-        padding-top: 50px;
-        padding-bottom: 50px;
+@media(max-width:420px) {
+    .team-left-top {
+        gap: 15px;
     }
 
-    .team-col {
+    .team-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .team-subtitle {
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .team-right {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
-    .team-col {
-        flex-direction: column;
-
+    .team-btn {
+        font-size: 16px;
+        line-height: 16px;
+        padding: 5px 20px;
     }
-
-    .team-title {
-        font-size: 30px;
-        margin-bottom: 40px;
-    }
-
-    .team-btn-box-btn,
-    .team-btn-box-btn-2,
-    .team-btn-box-btn-3 {
-        padding: 5px 10px 3px 15px;
-        font-size: 10px;
-        line-height: 15px;
-        justify-content: center;
-    }
-
-    .team-btn-box {
-        gap: 10px;
-
-    }
-
-    .team-img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .team-row-title {
-        font-size: 10px;
-        line-height: 13px;
-
-    }
-
-    .team-row-text {
-        font-size: 7px;
-        line-height: 10px;
-        margin-bottom: 5px;
-    }
-
-    .team-row-title2 {
-        font-size: 9px;
-        line-height: 10px;
-        margin-bottom: 3px;
-    }
-
-    .team-row-title2-span {
-        font-size: 8px;
-        line-height: 18px;
-    }
-
-    .team-row-text2 {
-        font-size: 7px;
-    }
-
 }
+
 
 
 /* Footer style */
