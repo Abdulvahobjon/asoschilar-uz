@@ -38,9 +38,7 @@ body{
     overflow-y: hidden;
 }
 
-.overFlowHidden {
-    overflow-y: hidden;
-}
+
 
 
 /* modal style */
@@ -239,7 +237,7 @@ body{
     transition: 0.3s;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 70px;
     text-align: center;
     transition: all, 1s;
@@ -386,7 +384,7 @@ body{
     .header-responsive-close {
         cursor: pointer;
         position: absolute;
-        top: 50px;
+        top: 40px;
         right: 20px;
     }
 
@@ -468,7 +466,6 @@ body{
     background-color: #FFFFFF;
     color: #000000;
     border-radius: 29px;
-    margin-bottom: 12px;
     position: relative;
     z-index: 111;
     cursor: pointer;
@@ -483,7 +480,6 @@ body{
     background-color: transparent;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
-
 }
 
 .hero-row-text {
@@ -497,6 +493,7 @@ body{
     position: relative;
     z-index: 111;
     opacity: 38% !important;
+    margin-bottom: 12px;
 }
 
 .hero-col-box {
@@ -1901,11 +1898,11 @@ label {
     z-index: 10;
     cursor: pointer;
     transition: all .3s !important;
+    opacity: 100%;
 }
 
 .form-btn:hover {
-    color: #000000;
-    background-color: #FFFFFF;
+    opacity: 50% !important;
 }
 
 .form-btn:active {
@@ -2723,7 +2720,7 @@ label {
 }
 
 .priceApplication:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important; 
 }
 
 .price-row-title {

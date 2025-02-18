@@ -3,7 +3,7 @@ const elements = {
   hamburgerBtn: document.querySelector(".header-hamburger-menyu"),
   hamburgerClose: document.querySelector(".header-responsive-close"),
   hamburgerMenu: document.querySelector(".header-responsive"),
-  body: document.querySelector("#html"),
+  body: document.querySelector("body"),
   formModal: document.querySelector(".formModal"),
   bgCloseModal: document.querySelector(".bgCloseModal"),
   loader: document.querySelector(".loaderBG"),
@@ -22,6 +22,7 @@ const toggleMenu = (show) => {
 elements.headerLink.forEach((item) => {
   item.addEventListener("click", () => {
     toggleMenu(false);
+    elements.body.style.overflowY = "auto"
   });
 });
 
@@ -38,6 +39,7 @@ elements.hamburgerMenu.addEventListener("click", (e) => {
 const toggleModal = (show, message = "", isValid = true) => {
   elements.bgCloseModal.style.display = show ? "flex" : "none";
   elements.formModal.classList.toggle("active", show);
+  elements.body.style.overflowY =  show ? "hidden" : "auto";
   if (show) {
     elements.formModalText.textContent = message;
     elements.formModalValid.style.display = isValid ? "block" : "none";
