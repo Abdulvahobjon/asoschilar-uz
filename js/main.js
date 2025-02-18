@@ -10,7 +10,7 @@ const elements = {
   formModalText: document.querySelector(".formModalText"),
   formModalValid: document.querySelector(".formModamValid"),
   formModalInvalid: document.querySelector(".formModamInvalid"),
-  headerLink: document.querySelectorAll(".header-responsive-link")
+  headerLink: document.querySelectorAll(".header-responsive-link"),
 };
 
 // Menu functions
@@ -23,7 +23,7 @@ elements.headerLink.forEach((item) => {
   item.addEventListener("click", () => {
     toggleMenu(false);
   });
-})
+});
 
 // Event listeners for menu
 elements.hamburgerBtn.addEventListener("click", () => toggleMenu(true));
@@ -181,6 +181,16 @@ const validateForm = (
     }
   });
 };
+
+validateForm(
+  "contact-form-1",
+  "name-1",
+  "phone-1",
+  "name-error-1",
+  "phone-error-1",
+  "company-1",
+  "company-error1"
+);
 
 validateForm(
   "contact-form-2",
