@@ -180,12 +180,24 @@ const validateForm = (
   });
 };
 
+// validateForm(
+//   "contact-form-1",
+//   "name-1",
+//   "phone-1",
+//   "name-error-1",
+//   "phone-error-1",
+//   "company-1",
+//   "company-error1"
+// );
+
 validateForm(
-  "contact-form-1",
-  "name-1",
-  "phone-1",
-  "name-error-1",
-  "phone-error-1",
-  "company-1",
-  "company-error1"
+  "contact-form-2",
+  "name-2",
+  "phone-2",
+  "name-error",
+  "phone-error",
+  "company-2",
+  "company-error2",
+  "umumiy-aylanma",
+  "umumiy-aylanma-error"
 );
