@@ -189,13 +189,3 @@ validateForm(
   "company-1",
   "company-error1"
 );
-
-validateForm(
-  "contact-form-2",
-  "name-2",
-  "phone-2",
-  "name-error",
-  "phone-error",
-  "company-2",
-  "company-error2"
-);
